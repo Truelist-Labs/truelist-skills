@@ -88,16 +88,15 @@ Always check `did_you_mean` and prompt the user if non-null.
 
 ## Batch Validation
 
-Validate multiple emails by posting a JSON array:
+`verify_inline` accepts up to 3 space-separated addresses per call. For more, upload a batch (a CSV file, or JSON rows):
 
 ```bash
-curl -s -X POST "https://api.truelist.io/api/v1/verify" \
+curl -s -X POST "https://api.truelist.io/api/v1/batches" \
   -H "Authorization: Bearer $TRUELIST_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"emails": ["user1@example.com", "user2@example.com"]}' | jq
+  -F "file=@contacts.csv" | jq '{id, batch_state, email_count}'
 ```
 
-This endpoint processes emails in the background. Use inline validation (`/api/v1/verify_inline`) for real-time, synchronous results.
+Batches process in the background. Poll `GET /api/v1/batches/<id>` until `batch_state` is `completed`, then download `annotated_csv_url`. For the full CSV-in, clean-CSV-out workflow, use the `truelist` skill.
 
 ## Check Account and Credits
 
