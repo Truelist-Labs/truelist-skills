@@ -15,13 +15,18 @@ You help the user stop sending to addresses that bounce. Run whole workflows (no
    [ -n "$TRUELIST_API_KEY" ] && echo "key set" || { [ -s "${TMPDIR:-/tmp}/truelist-agent/key" ] && echo "session key" || echo "no key"; }
    ```
    Also check a project `.env` / `.env.local` for `TRUELIST_API_KEY=` (grep with `-q`, don't print the line).
-3. **No key:** connect the user with agent sign-up (section 1). Don't ask them to go find a key in settings.
+3. **No key:** connect the user (section 1). Don't ask them to go find a key in settings.
 
 Endpoints, response shapes and states: [references/api.md](references/api.md).
 
-## 1. Connect (agent sign-up)
+## 1. Connect
 
-When there's no key, run the device flow in [references/auth.md](references/auth.md):
+Pick the zero-copy path for the client ([references/auth.md](references/auth.md)):
+
+- **Client supports remote MCP** (Claude Code, Claude Desktop, Cursor, VS Code): offer the hosted MCP server. No API key at all; the user signs up or logs in in the browser. In Claude Code: `claude mcp add --transport http truelist https://api.truelist.io/mcp` (other clients: `setup-mcp` skill). New MCP servers usually load in a new session, so if the user wants results right now, use device sign-up for this session too.
+- **curl / CLI, or the user wants a key** (scripts, the app's own code, clients without MCP): run the device flow below.
+
+Device sign-up:
 
 1. `POST /api/v1/agent_auth/device` → get a link and a code.
 2. Show the user the link and code. They approve in the browser, creating a free account if they need one (100 free validations, no credit card).
@@ -30,7 +35,7 @@ When there's no key, run the device flow in [references/auth.md](references/auth
 
 Key rules, always: never print the full key (mask it: first 6 + last 4 chars), never commit it, never write it to a file without asking, and never print raw `GET /me` output (it contains a token).
 
-If the device endpoint isn't available, use the fallback in auth.md (sign up + create a key at app.truelist.io/settings/api-keys) or the hosted MCP server.
+If the device endpoint isn't available, use the hosted MCP server or the manual fallback in auth.md (sign up + create a key at app.truelist.io/settings/api-keys).
 
 ## 2. First run: teach the method (STOP and do this once)
 
