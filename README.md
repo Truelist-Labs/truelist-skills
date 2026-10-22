@@ -86,12 +86,12 @@ Want me to add real-time validation to your signup form so the list stays clean?
 
 | Package | Description |
 |---------|-------------|
-| [truelist-openapi](https://github.com/Truelist-io-Email-Validation/truelist-openapi) | OpenAPI specification |
-| [truelist-node](https://github.com/Truelist-io-Email-Validation/truelist-node) | Node.js / TypeScript SDK |
-| [truelist-mcp](https://github.com/Truelist-io-Email-Validation/truelist-mcp) | MCP server for AI assistants |
-| [truelist-cli](https://github.com/Truelist-io-Email-Validation/truelist-cli) | Command-line interface |
+| [truelist-openapi](https://github.com/Truelist-Labs/truelist-openapi) | OpenAPI specification |
+| [truelist-node](https://github.com/Truelist-Labs/truelist-node) | Node.js / TypeScript SDK |
+| [truelist-mcp](https://github.com/Truelist-Labs/truelist-mcp) | MCP server for AI assistants |
+| [truelist-cli](https://github.com/Truelist-Labs/truelist-cli) | Command-line interface |
 
-SDKs are also available for [Ruby](https://github.com/Truelist-io-Email-Validation/truelist-ruby), [Python](https://github.com/Truelist-io-Email-Validation/truelist-python), [Go](https://github.com/Truelist-io-Email-Validation/truelist-go), [PHP](https://github.com/Truelist-io-Email-Validation/truelist-php), [Java](https://github.com/Truelist-io-Email-Validation/truelist-java), [C#](https://github.com/Truelist-io-Email-Validation/truelist-csharp), [Swift](https://github.com/Truelist-io-Email-Validation/truelist-swift), [Kotlin](https://github.com/Truelist-io-Email-Validation/truelist-kotlin), and [Rust](https://github.com/Truelist-io-Email-Validation/truelist-rust).
+SDKs are also available for [Ruby](https://github.com/Truelist-Labs/truelist-ruby), [Python](https://github.com/Truelist-Labs/truelist-python), [Go](https://github.com/Truelist-Labs/truelist-go), [PHP](https://github.com/Truelist-Labs/truelist-php), [Java](https://github.com/Truelist-Labs/truelist-java), and [C#](https://github.com/Truelist-Labs/truelist-csharp).
 
 ## License
 
