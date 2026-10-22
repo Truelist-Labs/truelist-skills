@@ -62,7 +62,9 @@ Add `TRUELIST_API_KEY` to the project's environment:
 TRUELIST_API_KEY=your-api-key
 ```
 
-Get an API key at [truelist.io](https://truelist.io).
+No key yet? Use agent sign-up instead of sending the user to a settings page: the `truelist` skill's [device flow](../truelist/references/auth.md) gives the user a link and a code to approve (creating a free account if needed) and hands you a new key. Never print the full key, and ask before writing it to a file.
+
+Fallback: sign up at [app.truelist.io/signup](https://app.truelist.io/signup) and create a key at [app.truelist.io/settings/api-keys](https://app.truelist.io/settings/api-keys).
 
 ## Step 4: Integrate
 
