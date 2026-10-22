@@ -10,7 +10,13 @@ Configure the Truelist MCP server so your AI coding assistant can validate email
 ## Prerequisites
 
 - Node.js 18+
-- A Truelist API key from [truelist.io](https://truelist.io)
+- A Truelist API key (see below)
+
+## Get an API Key
+
+**No key yet? Don't send the user to a settings page.** Use agent sign-up: the `truelist` skill's [device flow](../truelist/references/auth.md) gives the user a link and a code, they approve it in the browser (creating a free account if needed), and you receive a new key. Never print the full key, and ask before writing it to a shell profile or `.env`.
+
+Fallback (if the device flow isn't available): sign up at [app.truelist.io/signup](https://app.truelist.io/signup) and create a key at [app.truelist.io/settings/api-keys](https://app.truelist.io/settings/api-keys).
 
 ## Install
 
@@ -186,4 +192,4 @@ The API key is missing from your MCP config's `env` block or not exported in you
 
 ### Authentication errors
 
-Verify your API key at [truelist.io](https://truelist.io).
+The key is invalid or was revoked. Run the agent sign-up flow again to get a new one, or check your keys at [app.truelist.io/settings/api-keys](https://app.truelist.io/settings/api-keys).
